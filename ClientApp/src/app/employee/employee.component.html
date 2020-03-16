@@ -1,0 +1,36 @@
+<div>
+  <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+    <input type="hidden" name="_id" [(ngModel)]="id1">
+    <input type="text" name="name"  [(ngModel)]="nam">
+<br />
+<br />
+<br />
+    <input type="number" name="salary"  [(ngModel)]="salary">
+
+  <button type="submit">Submit</button>
+<br />
+<button type="button" (click)="resetForm(employeeForm)">Reset</button>
+<br />
+<button type="button" (click)="onRefresh()">Refresh</button>
+</form>
+</div>
+<br />
+<br />
+<br />
+<div>
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Salary</th>
+    </tr>
+    <tr *ngFor="let item of employees">
+      {{item._id}}
+      {{item.name}}
+      {{item.salary}}
+      <button type="button" (click)="onEdit(item)">Edit</button>
+      <button type="button" (click)="ondelete(item._id, employeeForm)">Delete</button>
+      <br />
+    </tr>
+  </table>
+</div>
